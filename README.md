@@ -6,3 +6,6 @@ Pin 7, Pin 8 (sensor at the gates shorted to GND when open), normally shorted to
 Outputs:<br>
 Pins: 12, 11, 5, 4, 3, 2 - LCD<br>
 Pin 10: Buzzer
+
+TODO:
+simple web server displaying status in local network build on ESP8266.
