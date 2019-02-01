@@ -2,8 +2,10 @@
 #include <LiquidCrystal.h>
 // initialize the library with the numbers of the interface pinsLiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 void setup() {     
-  // lcd settings  lcd.begin(16, 2);  
-  // boot up  pinMode (8, INPUT);
+  // lcd settings  
+  lcd.begin(16, 2);  
+  // boot up  
+  pinMode (8, INPUT);
   pinMode (7, INPUT); }
 
 // loop
@@ -23,7 +25,7 @@ void loop() {  pinMode (8, INPUT);
   else        
   lcd.setCursor(7, 0);
   lcd.print("CLOSED");    
-  //wyswietl na drugim wierszu  
+  //print in the second row  
   if (stanGarazu == LOW) 
   {  lcd.setCursor(7,1); 
   lcd.print("OPEN    ");
