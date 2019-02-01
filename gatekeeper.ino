@@ -15,8 +15,8 @@ void loop() {
   pinMode (8, INPUT);
   pinMode (7, INPUT);
   int stanBramy = digitalRead(8);
-  int stanGarazu = digitalRead(7);  
-  //prepare lcd  
+  int stanGarazu = digitalRead(7);
+  //prepare lcd
   lcd.setCursor(0,0);
   lcd.print(" GATE");
   lcd.setCursor(0,1);
@@ -25,8 +25,7 @@ void loop() {
   if (stanBramy == LOW) {
     lcd.setCursor(7, 0);
     lcd.print("OPEN    ");
-  }
-  else
+  } else
   lcd.setCursor(7, 0);
   lcd.print("CLOSED");
   //print in the second row
@@ -34,11 +33,11 @@ void loop() {
   {
     lcd.setCursor(7,1);
     lcd.print("OPEN    ");
-  }  else
+  } else
   lcd.setCursor(7, 1);
   lcd.print("CLOSED");
-  if (stanBramy == LOW || stanGarazu == LOW);
-  {
+  //make a beep
+  if (stanBramy == LOW || stanGarazu == LOW) {
     tone(10, 2500, 85);
     delay(85);
     tone (10,0,1);
