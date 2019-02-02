@@ -25,17 +25,19 @@ void loop() {
   if (stanBramy == LOW) {
     lcd.setCursor(7, 0);
     lcd.print("OPEN    ");
-  } else
-  lcd.setCursor(7, 0);
-  lcd.print("CLOSED");
+  } else {
+    lcd.setCursor(7, 0);
+    lcd.print("CLOSED");
+  }
   //print in the second row
   if (stanGarazu == LOW)
   {
     lcd.setCursor(7,1);
     lcd.print("OPEN    ");
-  } else
-  lcd.setCursor(7, 1);
-  lcd.print("CLOSED");
+  } else {
+    lcd.setCursor(7, 1);
+    lcd.print("CLOSED");
+  }
   //make a beep
   if (stanBramy == LOW || stanGarazu == LOW) {
     tone(10, 2500, 85);
