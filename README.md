@@ -13,4 +13,6 @@ Outputs:
 * Pin 10: Buzzer
 
 TODO:
-simple web server displaying status in local network build on ESP8266.
+web server displaying status in local network build on ESP8266.
+Connected with arduino by virtual serial port (RX-TX pins).
+Thanks to this information on the website will always be up to date.
