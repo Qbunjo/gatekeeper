@@ -12,6 +12,11 @@ Outputs:
 * Pins: 12, 11, 5, 4, 3, 2 - LCD
 * Pin 10: Buzzer
 
+![scheme](https://github.com/Qbunjo/gatekeeper/blob/master/Monitor%20bram.png)
+
+
+![frontend](https://github.com/Qbunjo/gatekeeper/blob/master/IMG_20181229_163546.jpg)
+
 TODO:
 web server displaying status in local network build on ESP8266.
 Connected with arduino by serial port (RX-TX pins).
