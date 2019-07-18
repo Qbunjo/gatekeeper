@@ -33,7 +33,7 @@ void loop() {
   if (curGateSt == 1 && curGaragSt == 1){
     evClosed=1;}// if everything is closed, flag on
   else {evClosed=0;}
-  if (evClosed=1) {
+  if (evClosed==1) {
     timer++;}//if flag is on, count to lcd turnoff
   if (curGaragSt ==1 && prevGaragSt ==0) {
     timer=0;} //if garage was closed and now opens, reset timer
