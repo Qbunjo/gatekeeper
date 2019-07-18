@@ -3,6 +3,8 @@
 This program was created to inform if the house gates (main gate and garage gate) are open.<br>
 The information is printed on the standard LCD 16x2, also when any of the gates is open, it beeps with buzzer.
 
+Version 1.1 includes screensaver in order to prevent burn-in lcd screen.
+
 Inputs:
 
 * Pin 7, Pin 8 (sensor at the gates shorted to GND when open), normally shorted to VCC through pull-up resistor.
