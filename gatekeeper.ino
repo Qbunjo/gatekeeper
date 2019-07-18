@@ -1,7 +1,6 @@
-
- int prevGateSt = 0;// gate memory variable
-  int prevGaragSt = 0; //garage memory variable
-  int timer =0; //timer
+int prevGateSt = 0;// gate memory variable
+int prevGaragSt = 0; //garage memory variable
+int timer =0; //timer
 int evClosed = 0; //all closed flag
 // include the library code:
 #include <LiquidCrystal.h>
