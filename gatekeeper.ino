@@ -15,13 +15,11 @@ void setup() {
      // lcd settings
   lcd.init();
   TurnOn();
-  
   // boot up
   pinMode (8, INPUT);
   pinMode (7, INPUT);
   pinMode (10, OUTPUT);
-  digitalWrite(10,HIGH);
-//  Serial.begin(9600);
+ Serial.begin(115200);
   //prepare lcd
   lcd.setCursor(0,0);
   lcd.print(" BRAMA  ");
@@ -46,8 +44,11 @@ void loop() {
     timer=0;} //if garage opens, reset timer
   if (curGateSt ==0) {
     timer=0;} //if gate opens, reset timer
- // Serial.println(timer);//show timer in serial
-  if (timer >=500){
+  Serial.println(timer);
+  Serial.println(curGateSt);
+  Serial.println(curGaragSt);
+  //show timer in serial
+  if (timer >=60){
     TurnOff();
   }//time to lcd turnoff
   if (curGateSt==0 && prevGateSt==1){
@@ -73,19 +74,23 @@ void loop() {
   else
     lcd.setCursor(7, 1);
     lcd.print("ZAMKNIETY");
-  if (curGateSt == LOW || curGaragSt == LOW);
+  if (curGateSt == LOW || curGaragSt == LOW)
   {
-   digitalWrite(10,HIGH);
+  tone(10,2500,85);
+  delay(85);
+  tone(10,0,1);
+  delay(1000);
   }
     prevGateSt=curGateSt; //remember previous state
     prevGaragSt=curGaragSt;
-  if (timer==2000){
+  if (timer==200){
     timer=1;}//do not count to infinity
 }
 void TurnOn(){
   lcd.display();
-  lcd.backlight();}
-  void TurnOff(){
-    lcd.noDisplay();
-    lcd.noBacklight();
+  lcd.backlight();
+  }
+void TurnOff(){
+  lcd.noDisplay();
+  lcd.noBacklight();
 }
