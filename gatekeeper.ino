@@ -1,17 +1,20 @@
+
+ 
 int prevGateSt = 0;// gate memory variable
   int prevGaragSt = 0; //garage memory variable
   int timer =0; //timer
 int evClosed = 0; //all closed flag
 // include the library code:
-#include <LiquidCrystal.h>
+#include <LiquidCrystal_I2C.h>
 
 // initialize the library with the numbers of the interface pins
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal_I2C lcd(0x27,16,2);
 
 void setup() {
      // lcd settings
   lcd.begin(16, 2);
-  lcd.display();
+  TurnOn();
+  
   // boot up
   pinMode (8, INPUT);
   pinMode (7, INPUT);
@@ -30,9 +33,9 @@ void loop() {
   int curGateSt = digitalRead(8);
   int curGaragSt = digitalRead(7);
   if (curGateSt==0 && prevGateSt==1){
-    lcd.display();}// if gate opens, turn on lcd
+   TurnOn();}// if gate opens, turn on lcd
   if (curGaragSt==0 && prevGaragSt ==1){
-    lcd.display();}// if garage opens, turn on lcd
+    TurnOn();}// if garage opens, turn on lcd
     if (curGateSt == 1 && curGaragSt == 1){
     evClosed=1;}// if everything is closed, flag on
   else {evClosed=0;}
@@ -44,11 +47,12 @@ void loop() {
     timer=0;} //if gate opens, reset timer
   Serial.println(timer);//show timer in serial
   if (timer >=25){
-    lcd.noDisplay();}//time to lcd turnoff
+    TurnOff();
+  }//time to lcd turnoff
   if (curGateSt==0 && prevGateSt==1){
-    lcd.display();}// if gate opens, turn on lcd
+    TurnOn();}// if gate opens, turn on lcd
   if (curGaragSt==0 && prevGaragSt ==1){
-    lcd.display();}// if garage opens, turn on lcd
+   TurnOn();}// if garage opens, turn on lcd
      //print in the first row
   if (curGateSt == LOW)
   {
@@ -76,4 +80,11 @@ void loop() {
     prevGaragSt=curGaragSt;
   if (timer==500){
     timer=1;}//do not count to infinity
+}
+void TurnOn(){
+  lcd.display();
+  lcd.backlight();}
+  void TurnOff(){
+    lcd.noDisplay();
+    lcd.noBacklight();
 }
